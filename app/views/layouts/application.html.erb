@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= content_for?(:title) ? yield(:title) : "Vtex" %></title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag "application", :media => "all" %>
+
+    <!-- For third-generation iPad with high-resolution Retina display: -->
+    <!-- Size should be 144 x 144 pixels -->
+    <%= favicon_link_tag 'apple-touch-icon-144x144-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '144x144' %>
+
+    <!-- For iPhone with high-resolution Retina display: -->
+    <!-- Size should be 114 x 114 pixels -->
+    <%= favicon_link_tag 'apple-touch-icon-114x114-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '114x114' %>
+
+    <!-- For first- and second-generation iPad: -->
+    <!-- Size should be 72 x 72 pixels -->
+    <%= favicon_link_tag 'apple-touch-icon-72x72-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '72x72' %>
+
+    <!-- For non-Retina iPhone, iPod Touch, and Android 2.1+ devices: -->
+    <!-- Size should be 57 x 57 pixels -->
+    <%= favicon_link_tag 'apple-touch-icon-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png' %>
+
+    <!-- For all other devices -->
+    <!-- Size should be 32 x 32 pixels -->
+    <%= favicon_link_tag 'favicon.ico', :rel => 'shortcut icon' %>
+
+    <%= javascript_include_tag "application" %>
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js" type="text/javascript"></script>
+    <![endif]-->
+  </head>
+  <body>
+
+    <div class="navbar navbar-default navbar-fixed-top">
+      <div class="container-fluid">
+      <div class="col-lg-offset-1 col-lg-10">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">Vtex</a>
+        <div class="navbar-collapse collapse navbar-responsive-collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <% if user_signed_in? %>
+              <li><%= button_to "プロジェクト", projects_path, method: :get, class: "btn btn-info navbar-btn" %></li>
+              <li><%= button_to "ログアウト", destroy_user_session_path, method: :delete, class: "btn btn-danger navbar-btn" %></li>
+            <% else %>
+              <li><%= button_to "ログイン", new_user_session_path, method: :get, class: "btn btn-info navbar-btn" %></li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+      <div class="row-fluid">
+      <div class="col-lg-offset-1">
+        <% if request.path.match(/projects\/[0-9]+$/) %>
+          <div class="col-lg-3">
+            <div class="well sidebar-nav">
+              <h3>ファイル一覧</h3>
+
+              <div class="pull-right"><%= link_to 'PDF更新', project_pdf_creates_path(@project, file: @open_file[:name]), remote: true, class: "btn btn-primary", id: 'pdf_update' %></div>
+
+              <div class="nav-header">PDFファイル</div>
+              <table class="table">
+                <tbody>
+                <% if @pdf_file.present? %>
+                  <tr><td><%= link_to 'document.pdf', "/vtex_data/#{current_user.number}/#{@project.id}/document.pdf", class: "btn btn-link", id: 'pdf_file_link', target: '_blank' %></td></tr>
+                <% else %>
+                  <tr><td><%= link_to 'document.pdf', "/vtex_data/#{current_user.number}/#{@project.id}/document.pdf", class: "btn btn-link", id: 'pdf_file_link', target: '_blank', style: "display:none" %></td></tr>
+                <% end %>
+                <tbody>
+              </table>
+
+              <div class="nav-header">PDF作成時エラー</div>
+              <table class="table">
+                <tbody>
+                <% if @err_file.present? %>
+                  <tr><td><%= link_to 'エラー表示', "/projects/#{@project.id}/error_pages", class: "btn btn-link", id: 'err_file_link', target: '_blank' %></td></tr>
+                <% else %>
+                  <tr><td><%= link_to 'エラー表示', "/projects/#{@project.id}/error_pages", class: "btn btn-link", id: 'err_file_link', target: '_blank', style: "display:none" %></td></tr>
+                <% end %>
+                <tbody>
+              </table>
+
+              <div class="nav-header">Styファイル</div>
+              <table class="table">
+                <tbody>
+                  <% @sty_files.each do |f| %>
+                    <tr><td><%= link_to f[:name], project_path(@project, file: f[:name]), class: "btn btn-link" %></td></tr>
+                  <% end %>
+                <tbody>
+              </table>
+
+              <div class="nav-header">Texファイル</div>
+              <table class="table">
+                <tbody id="tex_tbody">
+                  <tr>
+                    <%= form_tag project_files_path(@project), remote: true, id: 'create' do |f| %>
+                      <td><%= text_field_tag :file, 'file_name.tex', class: "form-control" %></td>
+                      <td class="pull-right"><%= submit_tag '作成', class: "btn btn-primary" %></td>
+                    <% end %>
+                  </tr>
+
+                  <% @tex_files.each do |f| %>
+                    <tr id="<%= f[:name].gsub(/\./, '_') %>">
+                      <td><%= link_to f[:name], project_path(@project, file: f[:name]), class: "btn btn-link" %></td>
+                      <td class="pull-right"><%= link_to '削除', project_files_path(@project, file: f[:name]), remote: true, method: :delete, data: { confirm: '削除しますか?' }, class: "btn btn-danger" %></td>
+                    </tr>
+                  <% end %>
+                <tbody>
+              </table>
+
+              <div class="nav-header">画像ファイル</div>
+              <table class="table">
+                <tbody id="image_tbody">
+                  <tr>
+                    <%= form_tag project_files_path(@project, file: @open_file[:name]), multipart: true, id: 'create' do |f| %>
+                      <td><%= file_field_tag :image, class: "form-control" %></td>
+                      <td class="pull-right"><%= submit_tag '追加', class: "btn btn-primary" %></td>
+                    <% end %>
+                  </tr>
+
+                  <% @image_files.each do |f| %>
+                    <tr id="<%= f[:name].gsub(/\./, '_') %>">
+                      <td><%= link_to f[:name], f[:path], class: "btn btn-link", target: '_blank' %></td>
+                      <td class="pull-right"><%= link_to '削除', project_files_path(@project, file: f[:name]), remote: true, method: :delete, data: { confirm: '削除しますか?' }, class: "btn btn-danger" %></td>
+                    </tr>
+                  <% end %>
+                <tbody>
+              </table>
+            </div>
+          </div>
+          <div class="col-lg-8">
+        <% else %>
+          <div class="col-lg-offset-1 col-lg-8">
+        <% end %>
+
+          <%= bootstrap_flash %>
+          <%= yield %>
+        </div>
+      </div>
+      </div>
+    </div> <!-- /container -->
+  </body>
+</html>

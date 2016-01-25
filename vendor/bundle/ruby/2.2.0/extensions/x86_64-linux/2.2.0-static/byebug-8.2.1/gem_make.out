@@ -1,0 +1,15 @@
+/home/hiraoka/.rbenv/versions/2.2.4/bin/ruby -r ./siteconf20160119-9992-dg1xmq.rb extconf.rb
+creating Makefile
+
+make "DESTDIR=" clean
+
+make "DESTDIR="
+compiling locker.c
+compiling breakpoint.c
+compiling byebug.c
+compiling threads.c
+compiling context.c
+linking shared-object byebug/byebug.so
+
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 byebug.so ./.gem.20160119-9992-1pdgsxd/byebug

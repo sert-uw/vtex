@@ -1,0 +1,29 @@
+{
+  "name": "jquery-overlay",
+  "main": "https://github.com/web-evolutions/jquery-overlay.git",
+  "ignore": [
+    ".bowerrc",
+    ".gitignore",
+    ".jshintignore",
+    ".jshintrc",
+    "bower.json",
+    "Gruntfile.js",
+    "gruntfile.js",
+    "package.json",
+    "README.md"
+  ],
+  "dependencies": {
+    "jquery": "~1.10.2"
+  },
+  "devDependencies": {},
+  "homepage": "https://github.com/web-evolutions/jquery-overlay",
+  "_release": "b93e6478db",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "b93e6478dbc987034027a2c8aa152b6cee0a5cc9"
+  },
+  "_source": "git://github.com/web-evolutions/jquery-overlay.git",
+  "_target": "*",
+  "_originalSource": "jquery-overlay"
+}

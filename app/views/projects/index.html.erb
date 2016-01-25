@@ -1,0 +1,23 @@
+<h1>プロジェクト一覧</h1>
+
+<%= link_to '新規作成', new_project_path, class: "btn btn-primary" %>
+
+<table class="table">
+  <thead>
+    <tr>
+      <td>プロジェクト名</td>
+      <td>説明</td>
+      <th colspan="1"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @projects.each do |project| %>
+      <tr>
+        <td><%= link_to project.name, project_path(project), class: "btn btn-link" %></td>
+        <td><%= project.description %></td>
+        <td><%= link_to '削除', project_path(project), method: :delete, data: { confirm: '削除しますか?' }, class: "btn btn-danger" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
