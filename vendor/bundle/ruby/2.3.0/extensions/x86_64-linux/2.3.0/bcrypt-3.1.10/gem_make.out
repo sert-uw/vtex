@@ -1,0 +1,19 @@
+current directory: /home/sert/rails_project/vtex/vendor/bundle/ruby/2.3.0/gems/bcrypt-3.1.10/ext/mri
+/usr/bin/ruby -r ./siteconf20160128-1377-tbnjix.rb extconf.rb
+creating Makefile
+
+current directory: /home/sert/rails_project/vtex/vendor/bundle/ruby/2.3.0/gems/bcrypt-3.1.10/ext/mri
+make "DESTDIR=" clean
+
+current directory: /home/sert/rails_project/vtex/vendor/bundle/ruby/2.3.0/gems/bcrypt-3.1.10/ext/mri
+make "DESTDIR="
+compiling crypt_gensalt.c
+compiling crypt_blowfish.c
+compiling wrapper.c
+compiling crypt.c
+compiling bcrypt_ext.c
+linking shared-object bcrypt_ext.so
+
+current directory: /home/sert/rails_project/vtex/vendor/bundle/ruby/2.3.0/gems/bcrypt-3.1.10/ext/mri
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 bcrypt_ext.so ./.gem.20160128-1377-1rxl8yw

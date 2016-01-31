@@ -21,12 +21,16 @@ gem 'simple_form'
 gem 'autosize-rails'
 gem 'remotipart'
 gem 'bower-rails'
+gem 'htmlentities'
+gem 'sanitize'
 
 group :development, :test do
   gem 'byebug'
 end
 
 group :development do
+  gem 'pry-byebug'
+  gem 'pry-rails'
   gem 'web-console', '~> 2.0'
   gem 'spring'
 end

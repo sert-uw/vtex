@@ -1,9 +1,12 @@
-<h1><%= @open_file[:name] %></h1>
+<script>
+  var project_id = <%= @project.id %>
+</script>
 
-<%= form_tag project_files_path(@project, file: @open_file[:name]), remote: true, method: :put, id: 'update' do |f| %>
-  <p><%= text_area_tag :content, @open_file[:content], class: "form-control", id: 'file_text_area', style: "min-width: 100%" %></p>
-  <%= submit_tag '保存', class: "btn btn-primary navbar-btn", id: "update_button", style: "display:none" %>
-<% end %>
+<h1 id="file_name_label"><%= @open_file[:name] %></h1>
+
+<div id="file_edit_area" style="min-width:100%" contentEditable=true>
+  <%= @open_file[:content].gsub(/\r\n|\r|\n/, "<br>").html_safe %>
+</div>
 
 <div class="navbar navbar-default navbar-fixed-bottom">
   <div class="container-fluid">

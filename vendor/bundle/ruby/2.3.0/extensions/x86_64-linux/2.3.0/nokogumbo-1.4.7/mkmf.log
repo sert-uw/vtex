@@ -1,0 +1,183 @@
+have_library: checking for xmlNewDoc() in -lxml2... -------------------- yes
+
+"gcc -o conftest -I/usr/include/ruby-2.3.0/x86_64-linux -I/usr/include/ruby-2.3.0/ruby/backward -I/usr/include/ruby-2.3.0 -I. -D_FORTIFY_SOURCE=2   -march=x86-64 -mtune=generic -O2 -pipe -fstack-protector-strong -fPIC -std=c99 conftest.c  -L. -L/usr/lib -L. -Wl,-O1,--sort-common,--as-needed,-z,relro -fstack-protector -rdynamic -Wl,-export-dynamic     -lruby  -lpthread -lgmp -ldl -lcrypt -lm   -lc"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: int main(int argc, char **argv)
+4: {
+5:   return 0;
+6: }
+/* end */
+
+"gcc -o conftest -I/usr/include/ruby-2.3.0/x86_64-linux -I/usr/include/ruby-2.3.0/ruby/backward -I/usr/include/ruby-2.3.0 -I. -D_FORTIFY_SOURCE=2   -march=x86-64 -mtune=generic -O2 -pipe -fstack-protector-strong -fPIC -std=c99 conftest.c  -L. -L/usr/lib -L. -Wl,-O1,--sort-common,--as-needed,-z,relro -fstack-protector -rdynamic -Wl,-export-dynamic     -lruby -lxml2  -lpthread -lgmp -ldl -lcrypt -lm   -lc"
+conftest.c: 関数 ‘t’ 内:
+conftest.c:13:57: エラー: ‘xmlNewDoc’ が宣言されていません (この関数内での最初の使用)
+ int t(void) { void ((*volatile p)()); p = (void ((*)()))xmlNewDoc; return !p; }
+                                                         ^
+conftest.c:13:57: 備考: 未宣言の識別子は出現した各関数内で一回のみ報告されます
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     printf("%p", &t);
+ 9:   }
+10: 
+11:   return 0;
+12: }
+13: int t(void) { void ((*volatile p)()); p = (void ((*)()))xmlNewDoc; return !p; }
+/* end */
+
+"gcc -o conftest -I/usr/include/ruby-2.3.0/x86_64-linux -I/usr/include/ruby-2.3.0/ruby/backward -I/usr/include/ruby-2.3.0 -I. -D_FORTIFY_SOURCE=2   -march=x86-64 -mtune=generic -O2 -pipe -fstack-protector-strong -fPIC -std=c99 conftest.c  -L. -L/usr/lib -L. -Wl,-O1,--sort-common,--as-needed,-z,relro -fstack-protector -rdynamic -Wl,-export-dynamic     -lruby -lxml2  -lpthread -lgmp -ldl -lcrypt -lm   -lc"
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     printf("%p", &t);
+ 9:   }
+10: 
+11:   return 0;
+12: }
+13: extern void xmlNewDoc();
+14: int t(void) { xmlNewDoc(); return 0; }
+/* end */
+
+--------------------
+
+| pkg-config --libs libxml-2.0
+=> "-lxml2\n"
+"gcc -o conftest -I/usr/include/ruby-2.3.0/x86_64-linux -I/usr/include/ruby-2.3.0/ruby/backward -I/usr/include/ruby-2.3.0 -I. -D_FORTIFY_SOURCE=2   -march=x86-64 -mtune=generic -O2 -pipe -fstack-protector-strong -fPIC -std=c99 conftest.c  -L. -L/usr/lib -L. -Wl,-O1,--sort-common,--as-needed,-z,relro -fstack-protector -rdynamic -Wl,-export-dynamic    -lxml2  -lruby -lxml2 -lpthread -lgmp -ldl -lcrypt -lm   -lc"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: int main(int argc, char **argv)
+4: {
+5:   return 0;
+6: }
+/* end */
+
+| pkg-config --cflags-only-I libxml-2.0
+=> "-I/usr/include/libxml2\n"
+| pkg-config --cflags-only-other libxml-2.0
+=> "\n"
+| pkg-config --libs-only-l libxml-2.0
+=> "-lxml2\n"
+package configuration for libxml-2.0
+cflags: 
+ldflags: 
+libs: -lxml2
+
+find_header: checking for nokogiri.h in /home/sert/rails_project/vtex/vendor/bundle/ruby/2.3.0/gems/nokogiri-1.6.7.1/ext/nokogiri... -------------------- yes
+
+"gcc -E -I/usr/include/ruby-2.3.0/x86_64-linux -I/usr/include/ruby-2.3.0/ruby/backward -I/usr/include/ruby-2.3.0 -I. -I/usr/include/libxml2 -D_FORTIFY_SOURCE=2   -march=x86-64 -mtune=generic -O2 -pipe -fstack-protector-strong -fPIC -std=c99   conftest.c -o conftest.i"
+conftest.c:3:22: 致命的エラー: nokogiri.h: そのようなファイルやディレクトリはありません
+コンパイルを停止しました。
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <nokogiri.h>
+/* end */
+
+"gcc -E -I/usr/include/ruby-2.3.0/x86_64-linux -I/usr/include/ruby-2.3.0/ruby/backward -I/usr/include/ruby-2.3.0 -I. -I/usr/include/libxml2 -D_FORTIFY_SOURCE=2   -march=x86-64 -mtune=generic -O2 -pipe -fstack-protector-strong -fPIC -std=c99  -I/home/sert/rails_project/vtex/vendor/bundle/ruby/2.3.0/gems/nokogiri-1.6.7.1/ext/nokogiri conftest.c -o conftest.i"
+In file included from conftest.c:3:0:
+/home/sert/rails_project/vtex/vendor/bundle/ruby/2.3.0/gems/nokogiri-1.6.7.1/ext/nokogiri/nokogiri.h:13:0: 警告: "_GNU_SOURCE" が再定義されました
+ #define _GNU_SOURCE
+ ^
+In file included from /usr/include/ruby-2.3.0/ruby/ruby.h:24:0,
+                 from /usr/include/ruby-2.3.0/ruby.h:33,
+                 from conftest.c:1:
+/usr/include/ruby-2.3.0/x86_64-linux/ruby/config.h:17:0: 備考: ここが以前の宣言がある位置です
+ #define _GNU_SOURCE 1
+ ^
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <nokogiri.h>
+/* end */
+
+--------------------
+
+find_header: checking for nokogiri.h in /home/sert/rails_project/vtex/vendor/bundle/ruby/2.3.0/gems/nokogiri-1.6.7.1/ext/nokogiri... -------------------- yes
+
+"gcc -E -I/usr/include/ruby-2.3.0/x86_64-linux -I/usr/include/ruby-2.3.0/ruby/backward -I/usr/include/ruby-2.3.0 -I. -I/usr/include/libxml2 -I/home/sert/rails_project/vtex/vendor/bundle/ruby/2.3.0/gems/nokogiri-1.6.7.1/ext/nokogiri -D_FORTIFY_SOURCE=2   -march=x86-64 -mtune=generic -O2 -pipe -fstack-protector-strong -fPIC -std=c99   conftest.c -o conftest.i"
+In file included from conftest.c:3:0:
+/home/sert/rails_project/vtex/vendor/bundle/ruby/2.3.0/gems/nokogiri-1.6.7.1/ext/nokogiri/nokogiri.h:13:0: 警告: "_GNU_SOURCE" が再定義されました
+ #define _GNU_SOURCE
+ ^
+In file included from /usr/include/ruby-2.3.0/ruby/ruby.h:24:0,
+                 from /usr/include/ruby-2.3.0/ruby.h:33,
+                 from conftest.c:1:
+/usr/include/ruby-2.3.0/x86_64-linux/ruby/config.h:17:0: 備考: ここが以前の宣言がある位置です
+ #define _GNU_SOURCE 1
+ ^
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <nokogiri.h>
+/* end */
+
+--------------------
+
+have_library: checking for gumbo_parse() in -lgumbo... -------------------- no
+
+"gcc -o conftest -I/usr/include/ruby-2.3.0/x86_64-linux -I/usr/include/ruby-2.3.0/ruby/backward -I/usr/include/ruby-2.3.0 -I. -I/usr/include/libxml2 -I/home/sert/rails_project/vtex/vendor/bundle/ruby/2.3.0/gems/nokogiri-1.6.7.1/ext/nokogiri -D_FORTIFY_SOURCE=2   -march=x86-64 -mtune=generic -O2 -pipe -fstack-protector-strong -fPIC -std=c99  -DNGLIB conftest.c  -L. -L/usr/lib -L. -Wl,-O1,--sort-common,--as-needed,-z,relro -fstack-protector -rdynamic -Wl,-export-dynamic     -lxml2  -lxml2 -lruby -lgumbo -lxml2  -lxml2 -lpthread -lgmp -ldl -lcrypt -lm   -lc"
+conftest.c: 関数 ‘t’ 内:
+conftest.c:13:57: エラー: ‘gumbo_parse’ が宣言されていません (この関数内での最初の使用)
+ int t(void) { void ((*volatile p)()); p = (void ((*)()))gumbo_parse; return !p; }
+                                                         ^
+conftest.c:13:57: 備考: 未宣言の識別子は出現した各関数内で一回のみ報告されます
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     printf("%p", &t);
+ 9:   }
+10: 
+11:   return 0;
+12: }
+13: int t(void) { void ((*volatile p)()); p = (void ((*)()))gumbo_parse; return !p; }
+/* end */
+
+"gcc -o conftest -I/usr/include/ruby-2.3.0/x86_64-linux -I/usr/include/ruby-2.3.0/ruby/backward -I/usr/include/ruby-2.3.0 -I. -I/usr/include/libxml2 -I/home/sert/rails_project/vtex/vendor/bundle/ruby/2.3.0/gems/nokogiri-1.6.7.1/ext/nokogiri -D_FORTIFY_SOURCE=2   -march=x86-64 -mtune=generic -O2 -pipe -fstack-protector-strong -fPIC -std=c99  -DNGLIB conftest.c  -L. -L/usr/lib -L. -Wl,-O1,--sort-common,--as-needed,-z,relro -fstack-protector -rdynamic -Wl,-export-dynamic     -lxml2  -lxml2 -lruby -lgumbo -lxml2  -lxml2 -lpthread -lgmp -ldl -lcrypt -lm   -lc"
+/usr/bin/ld: -lgumbo が見つかりません
+collect2: エラー: ld はステータス 1 で終了しました
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     printf("%p", &t);
+ 9:   }
+10: 
+11:   return 0;
+12: }
+13: extern void gumbo_parse();
+14: int t(void) { gumbo_parse(); return 0; }
+/* end */
+
+--------------------
+

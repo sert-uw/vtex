@@ -1,10 +1,24 @@
 $ ->
-  $('#file_text_area')
+  $('#file_edit_area')
     .on 'keyup', (e) ->
       if e.keyCode < 37 || 40 < e.keyCode
-        $('#update_button').trigger('click')
+        $.ajax({
+          type: 'PUT',
+          url: '/projects/' + project_id + '/files.json',
+          data: {
+            'content': $('#file_edit_area').html(),
+            'file': $('#file_name_label').text()
+          }
+        })
 
-    .autosize()
+      if e.keyCode == 104
+        selection = window.getSelection()
+        orgRange = selection.getRangeAt(0)
+
+        changeColor(this)
+
+        selection.removeAllRanges()
+        selection.addRange(orgRange)
 
   $("a[data-remote]")
     .on 'ajax:complete', (event, ajax, status) ->
@@ -67,3 +81,38 @@ $ ->
           file = response.data.file
 
           $(this).closest('#' + file).remove()
+
+$(document)
+  .on 'ready page:load', () ->
+    changeColor(document.getElementById('file_edit_area'))
+    changeColor(document.getElementById('file_edit_area'))
+    changeColor(document.getElementById('file_edit_area'))
+
+changeColor = (obj) ->
+  selection = window.getSelection()
+
+  regexps = [/%.*$/g, /\\\w*/g, /\{[\w\.\/:一-龠ぁ-ン]+\}|\{|\}/g, /\[[\w,=\.]+\]/g]
+  colors = ['steelblue', 'gold', 'magenta', 'tomato']
+
+  for regexp, i in regexps
+    nodes = obj.childNodes
+    for item, itemCnt in nodes
+      if item.nodeName != '#text'
+        continue
+
+      results = item.data.match(regexp)
+      if results != null
+        ranges = []
+        for val in results
+          sPos = item.data.indexOf(val)
+          ePos = sPos + val.length
+
+          range = document.createRange()
+          range.setStart(item, sPos)
+          range.setEnd(item, ePos)
+          ranges.push(range)
+
+        for range in ranges
+          selection.removeAllRanges()
+          selection.addRange(range)
+          document.execCommand('ForeColor', false, colors[i])

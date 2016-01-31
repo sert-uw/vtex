@@ -1,6 +1,9 @@
-textarea#file_text_area {
-    font-family: Consolas, 'Courier New', Courier, Monaco, monospace;
-    font-size: 18px;
-    line-height: 1.2;
-    min-width: 100%;
+div#file_edit_area {
+  font-family: Consolas, 'Courier New', Courier, Monaco, monospace;
+  font-size: 16px;
+  color: #ffffff;
+  background-color: #300b25;
+  line-height: 1.2;
+  min-width: 100%;
+  padding: 4px;
 }

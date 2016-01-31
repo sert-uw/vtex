@@ -43,7 +43,7 @@ class FilesController < ApplicationController
 
   def update
     project = Project.find params[:project_id]
-    File.write("#{Rails.root}/public/vtex_data/#{current_user.number}/#{project.id}/#{params[:file]}", params[:content])
+    File.write("#{Rails.root}/public/vtex_data/#{current_user.number}/#{project.id}/#{params[:file]}", crean_content(params[:content]))
     respond_to do |format|
       format.html { redirect_to project_path(project, file: params[:file]) }
       format.js { render json: { status: 'success', data: { file: params[:file].gsub(/\./, '_') } } }
@@ -64,5 +64,12 @@ class FilesController < ApplicationController
       format.html { redirect_to project_path project }
       format.js { render json: { status: 'success', data: { method: 'delete', file: params[:file].gsub(/\./, '_') } } }
     end
+  end
+
+  private
+
+  def crean_content content
+    c = Sanitize.clean(HTMLEntities.new.decode(content.gsub(/<br>[&nbsp;]+<br>/, '<br><br>')).gsub(/<br>/, "\n"))
+    c.gsub(/\A[\n ]+/, '').gsub(/\n+\z/, '')
   end
 end

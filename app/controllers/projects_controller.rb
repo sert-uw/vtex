@@ -57,8 +57,8 @@ class ProjectsController < ApplicationController
   end
 
   def init_directory id, template
-    p system("mkdir #{Rails.root}/public/vtex_data/#{current_user.number}/#{id}")
-    p system("cp -r #{Rails.root}/public/vtex_data/#{template}/* #{Rails.root}/public/vtex_data/#{current_user.number}/#{id}/")
+    FileUtils.mkdir "#{Rails.root}/public/vtex_data/#{current_user.number}/#{id}"
+    FileUtils.copy_entry("#{Rails.root}/public/vtex_data/#{template}/", "#{Rails.root}/public/vtex_data/#{current_user.number}/#{id}/")
   end
 
   def get_pdf_file id

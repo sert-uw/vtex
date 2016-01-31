@@ -1,0 +1,44 @@
+current directory: /home/sert/rails_project/vtex/vendor/bundle/ruby/2.3.0/gems/nokogumbo-1.4.7/ext/nokogumboc
+/usr/bin/ruby -r ./siteconf20160129-30562-vs2ab4.rb extconf.rb
+checking for xmlNewDoc() in -lxml2... yes
+checking for nokogiri.h in /home/sert/rails_project/vtex/vendor/bundle/ruby/2.3.0/gems/nokogiri-1.6.7.1/ext/nokogiri... yes
+checking for nokogiri.h in /home/sert/rails_project/vtex/vendor/bundle/ruby/2.3.0/gems/nokogiri-1.6.7.1/ext/nokogiri... yes
+checking for gumbo_parse() in -lgumbo... no
+creating Makefile
+
+To see why this extension failed to compile, please check the mkmf.log which can be found here:
+
+  /home/sert/rails_project/vtex/vendor/bundle/ruby/2.3.0/extensions/x86_64-linux/2.3.0/nokogumbo-1.4.7/mkmf.log
+
+current directory: /home/sert/rails_project/vtex/vendor/bundle/ruby/2.3.0/gems/nokogumbo-1.4.7/ext/nokogumboc
+make "DESTDIR=" clean
+
+current directory: /home/sert/rails_project/vtex/vendor/bundle/ruby/2.3.0/gems/nokogumbo-1.4.7/ext/nokogumboc
+make "DESTDIR="
+compiling util.c
+compiling tokenizer.c
+compiling vector.c
+compiling tag.c
+compiling nokogumbo.c
+In file included from nokogumbo.c:28:0:
+/home/sert/rails_project/vtex/vendor/bundle/ruby/2.3.0/gems/nokogiri-1.6.7.1/ext/nokogiri/nokogiri.h:13:0: 警告: "_GNU_SOURCE" が再定義されました
+ #define _GNU_SOURCE
+ ^
+In file included from /usr/include/ruby-2.3.0/ruby/ruby.h:24:0,
+                 from /usr/include/ruby-2.3.0/ruby.h:33,
+                 from nokogumbo.c:21:
+/usr/include/ruby-2.3.0/x86_64-linux/ruby/config.h:17:0: 備考: ここが以前の宣言がある位置です
+ #define _GNU_SOURCE 1
+ ^
+compiling error.c
+compiling string_piece.c
+compiling char_ref.c
+compiling string_buffer.c
+compiling parser.c
+compiling utf8.c
+compiling attribute.c
+linking shared-object nokogumboc.so
+
+current directory: /home/sert/rails_project/vtex/vendor/bundle/ruby/2.3.0/gems/nokogumbo-1.4.7/ext/nokogumboc
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 nokogumboc.so ./.gem.20160129-30562-cxkc3w
