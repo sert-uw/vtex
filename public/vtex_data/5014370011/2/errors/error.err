@@ -1,0 +1,231 @@
+Tex Error
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+This is e-pTeX, Version 3.1415926-p3.4-110825-2.6 (utf8.euc) (TeX Live 2013/Debian)
+ restricted \write18 enabled.
+entering extended mode
+(./document.tex
+pLaTeX2e <2006/11/10> (based on LaTeX2e <2011/06/27> patch level 0)
+Babel <3.9h> and hyphenation patterns for 11 languages loaded.
+(/usr/share/texlive/texmf-dist/tex/platex/base/jreport.cls
+Document Class: jreport 2006/06/27 v1.6 Standard pLaTeX class
+(/usr/share/texlive/texmf-dist/tex/platex/base/jsize12.clo))
+(/usr/share/texlive/texmf-dist/tex/latex/colortbl/colortbl.sty
+(/usr/share/texlive/texmf-dist/tex/latex/tools/array.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/color.sty
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/color.cfg)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/dvips.def)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/dvipsnam.def))) (./thesis.sty
+
+Thesis.sty version 2.01 - Released Feb 9, 1994 (for printing thesis)
+Based on thesis.sty version 1.0 - Released Feb 20, 1992
+) (/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/graphics.cfg)
+(/usr/share/texlive/texmf-dist/tex/latex/dvipdfmx-def/dvipdfmx.def)))
+(/usr/share/texlive/texmf-dist/tex/latex/url/url.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
+For additional information on amsmath, use the `?' option.
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amstext.sty
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/comment/comment.sty
+Excluding comment 'comment')
+No file document.aux.
+[1]
+No file document.toc.
+[1]
+No file document.lof.
+[2]
+No file document.lot.
+[3] (./abst.tex
+第 1 章
+
+LaTeX Warning: Citation `cite_1' on page 1 undefined on input line 5.
+
+
+LaTeX Warning: Reference `tab:bio' on page 1 undefined on input line 7.
+
+
+LaTeX Warning: Reference `tab:soft_bio' on page 1 undefined on input line 7.
+
+
+LaTeX Warning: Citation `cite_1' on page 1 undefined on input line 31.
+
+[1] [2]) (./pa_by_sign.tex [3]
+第 2 章
+(/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd)) (./related_work.tex
+[4]
+第 3 章
+
+LaTeX Warning: Citation `cite_2' on page 5 undefined on input line 3.
+
+
+LaTeX Warning: Citation `cite_3' on page 5 undefined on input line 3.
+
+
+LaTeX Warning: Citation `cite_4' on page 5 undefined on input line 3.
+
+) (./method.tex [5]
+第 4 章
+
+LaTeX Warning: Reference `fig:ProposedMethod' on page 6 undefined on input line
+ 5.
+
+<./images/ProposedMethod.png> [6]
+
+LaTeX Warning: Reference `fig:LeapMotion' on page 7 undefined on input line 28.
+
+
+<./images/LeapMotion.png>
+
+LaTeX Warning: Reference `fig:LeapAxes' on page 7 undefined on input line 38.
+
+
+LaTeX Warning: Reference `fig:Demo' on page 7 undefined on input line 38.
+
+
+LaTeX Warning: Reference `fig:DemoKonishi' on page 7 undefined on input line 38
+.
+
+<./images/LeapAxes.png> <./images/Demo.png> <./images/DemoKonishi.png> [7]
+[8]
+
+LaTeX Warning: Reference `fig:DemoKonishi' on page 9 undefined on input line 66
+.
+
+
+Overfull \hbox (18.80879pt too wide) in paragraph at lines 66--69
+[] \JY1/mc/m/n/12 （ 注 \OT1/cmr/m/n/12 1\JY1/mc/m/n/12 ）  \OT1/cmr/m/n/12 htt
+ps://developer.leapmotion.com/documentation/cpp/devguide/Leap[]Overview.html
+[9]
+
+LaTeX Warning: Reference `fig:DemoKonishi' on page 10 undefined on input line 7
+4.
+
+
+LaTeX Warning: Reference `fig:PreProcessing1' on page 10 undefined on input lin
+e 74.
+
+<./images/PreProcessing1.png>
+
+LaTeX Warning: Reference `fig:PreProcessing2' on page 10 undefined on input lin
+e 94.
+
+
+LaTeX Warning: Reference `fig:PreProcessing1' on page 10 undefined on input lin
+e 94.
+
+<./images/PreProcessing2.png> [10]
+
+LaTeX Warning: Reference `fig:PreProcessing3' on page 11 undefined on input lin
+e 112.
+
+
+LaTeX Warning: Reference `fig:PreProcessing2' on page 11 undefined on input lin
+e 112.
+
+<./images/PreProcessing3.png> [11]
+
+LaTeX Warning: Reference `fig:PreProcessing4' on page 12 undefined on input lin
+e 140.
+
+<./images/PreProcessing4.png>
+
+LaTeX Warning: Reference `fig:PreProcessing5' on page 12 undefined on input lin
+e 158.
+
+
+LaTeX Warning: Reference `fig:PreProcessing3' on page 12 undefined on input lin
+e 158.
+
+<./images/PreProcessing5.png> [12]
+
+LaTeX Warning: Reference `fig:PreProcessing6' on page 13 undefined on input lin
+e 182.
+
+
+LaTeX Warning: Reference `fig:PreProcessing5' on page 13 undefined on input lin
+e 182.
+
+<./images/PreProcessing6.png> [13]
+
+LaTeX Warning: Reference `eq:eq6' on page 14 undefined on input line 218.
+
+[14]
+
+LaTeX Warning: Reference `fig:GaussDist' on page 15 undefined on input line 249
+.
+
+<./images/GaussDist.png>
+
+LaTeX Warning: Reference `eq:eq8' on page 15 undefined on input line 260.
+
+[15] [16]
+
+LaTeX Warning: Citation `cite_5' on page 17 undefined on input line 274.
+
+
+LaTeX Warning: Citation `cite_6' on page 17 undefined on input line 274.
+
+
+LaTeX Warning: Reference `fig:neuron' on page 17 undefined on input line 284.
+
+<./images/Neuron.png> [17]
+
+LaTeX Warning: Reference `fig:neuron_model' on page 18 undefined on input line 
+300.
+
+<./images/NeuronModel.png> [18]
+
+LaTeX Warning: Reference `eq:sigmoid' on page 19 undefined on input line 328.
+
+<./images/Sigmoid.png>
+
+LaTeX Warning: Reference `eq:tanh' on page 19 undefined on input line 344.
+
+
+LaTeX Warning: Reference `fig:tanh' on page 19 undefined on input line 344.
+
+[19] <./images/tanh.png>
+
+LaTeX Warning: Reference `fig:network_model' on page 20 undefined on input line
+ 362.
+
+<./images/NetworkModel.png>
+
+LaTeX Warning: Reference `fig:network_model' on page 20 undefined on input line
+ 372.
+
+
+LaTeX Warning: Reference `fig:network_model' on page 20 undefined on input line
+ 372.
+
+[20] [21]
+
+LaTeX Warning: Reference `eq:neuron_model_1' on page 22 undefined on input line
+ 379.
+
+
+LaTeX Warning: Reference `eq:neuron_model_2' on page 22 undefined on input line
+ 379.
+
+) (./conclusion.tex [22]
+第 5 章
+) (./ack.tex [23]) [24] [25] (./document.aux)
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+ )
+(see the transcript file for additional information)
+Output written on document.dvi (29 pages, 54740 bytes).
+Transcript written on document.log.

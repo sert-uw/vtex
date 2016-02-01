@@ -1,0 +1,70 @@
+\documentclass[12pt,twoside]{jreport}  % 文字サイズは12pt, twoside:左右の上にページ番号表示
+\usepackage{colortbl}                  % 表に色付けたりする
+\usepackage{thesis}                    % 論文用スタイル
+\usepackage[dvipdfmx]{graphicx}         % PNG形式の図などを貼りつけられる, 使わないなら外してOK
+\usepackage{url}
+\usepackage{amsmath}
+\renewcommand{\bibname}{参考文献}      % jreportだと"関連図書"になるので強制的に修正
+
+\begin{document}
+% タイトルページ
+\begin{titlepage}
+\parindent=0in
+\begin{center}
+\Large
+\vspace*{3zh}
+平成yy年度\\
+卒 業 論 文\\
+\vspace*{3zh}
+題 目 \\
+{\LARGE\bf
+論文タイトル\\
+english title\\
+}
+\vspace*{3zh}
+B5研究室 4年 氏 名\\[1cm]
+平成yy年2月dd日\\
+\vspace*{5mm}
+\end{center}
+\end{titlepage}
+
+\pagenumbering{roman}  % ページ番号表記を小文字のローマ数字に
+\setcounter{page}{1}   % ページ番号を1ページに修正
+\tableofcontents       % 目次を表示
+\listoffigures         % 図目次
+\listoftables          % 表目次
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% ここから1ページ
+\pagenumbering{arabic}   % ページ番号表記をアラビア数字に
+\setcounter{page}{1}     % ページ番号を1ページに修正
+%\setlength{\baselineskip}{20pt} % 行間隔を広くする
+
+% ここから本文
+\setlength{\baselineskip}{20pt}
+
+% 1章
+\input{abst.tex}
+
+% 章を追加する場合は
+% \input{2nd.tex}
+% のようにinputを使う
+
+% 結論
+\input{conclusion.tex}
+
+% 謝辞
+\input{ack.tex}
+
+% 参考文献
+\newpage
+
+\addcontentsline{toc}{chapter}{参考文献}
+\begin{thebibliography}{99}% ここに参考文献を追加
+\bibitem{cite_1} name1, name2, "paper title", confarenceName
+\end{thebibliography}
+
+\end{document}
+

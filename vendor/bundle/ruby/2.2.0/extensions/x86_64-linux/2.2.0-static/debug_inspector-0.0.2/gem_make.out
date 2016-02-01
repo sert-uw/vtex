@@ -1,0 +1,11 @@
+/home/hiraoka/.rbenv/versions/2.2.4/bin/ruby -r ./siteconf20160119-9992-vm232r.rb extconf.rb
+creating Makefile
+
+make "DESTDIR=" clean
+
+make "DESTDIR="
+compiling debug_inspector.c
+linking shared-object debug_inspector.so
+
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 debug_inspector.so ./.gem.20160119-9992-jht4li

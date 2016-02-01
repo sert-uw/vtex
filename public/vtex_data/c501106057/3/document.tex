@@ -1,0 +1,79 @@
+\documentclass[12pt,twoside]{jreport}  % 文字サイズは12pt, twoside:左右の上にページ番号表示
+\usepackage{colortbl}                  % 表に色付けたりする
+\usepackage{thesis}                    % 論文用スタイル
+\usepackage[dvipdfmx]{graphicx}         % PNG形式の図などを貼りつけられる, 使わないなら外してOK
+\usepackage{url}
+\usepackage{amsmath}
+\renewcommand{\bibname}{参考文献}      % jreportだと"関連図書"になるので強制的に修正
+
+\begin{document}
+% タイトルページ
+\begin{titlepage}
+\parindent=0in
+\begin{center}
+\Large
+\vspace*{3zh}
+平成27年度\\
+卒 業 論 文\\
+\vspace*{3zh}
+題 目 \\
+{\LARGE\bf
+着席状態での動作に基づいた\\
+ソフトバイオメトリクス認証\\
+Soft biometrics authentication\\
+based on a motion in the seated state\\
+}
+\vspace*{3zh}
+B5研究室 4年　梅林 雄大\\[1cm]
+平成28年2月22日\\
+\vspace*{5mm}
+\end{center}
+\end{titlepage}
+
+% 目次の出力 (2回連続でコンパイルすること)
+% 目次などはローマ数字でページ数が書かれる
+% 本文は普通のアラビア数字になる
+\pagenumbering{roman}  % ページ番号表記を小文字のローマ数字に
+\setcounter{page}{1}   % ページ番号を1ページに修正
+\tableofcontents       % 目次を表示
+\listoffigures         % 図目次
+\listoftables          % 表目次
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% ここから1ページ
+\pagenumbering{arabic}   % ページ番号表記をアラビア数字に
+\setcounter{page}{1}     % ページ番号を1ページに修正
+%\setlength{\baselineskip}{20pt} % 行間隔を広くする
+% ここから本文
+\setlength{\baselineskip}{20pt}
+% 1章
+\input{abst.tex}
+% 2章
+\input{daini.tex}
+% 3章
+\input{daisan.tex}
+% 4章
+\input{daiyon.tex}
+% 5章
+\input{daigo.tex}
+
+\input{conclusion.tex}
+% 謝辞
+\input{ack.tex}
+% 参考文献
+\newpage
+\addcontentsline{toc}{chapter}{参考文献}
+\begin{thebibliography}{99}% ここに参考文献を追加
+\bibitem{rgb_camera}真部雄介，菅原研次，“RGBカメラと深度センサーで計測した人間の動作時系列に基づくバイオメトリスク照合”，第1回バイオメトリクス研究会
+\end{thebibliography}
+
+% 付録
+%\newpage
+%\appendix
+
+%\chapter{付録A}
+
+\end{document}
+

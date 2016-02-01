@@ -1,0 +1,39 @@
+/home/hiraoka/.rbenv/versions/2.2.4/bin/ruby -r ./siteconf20160119-29511-1eb3vhq.rb extconf.rb
+checking for main() in -lpthread... yes
+creating Makefile
+
+make "DESTDIR=" clean
+
+make "DESTDIR="
+compiling signature.cc
+compiling date.cc
+compiling function.cc
+compiling object.cc
+compiling message.cc
+compiling array.cc
+compiling script.cc
+compiling invocation.cc
+compiling accessor.cc
+compiling exception.cc
+compiling primitive.cc
+compiling rr.cc
+compiling handles.cc
+compiling v8.cc
+compiling stack.cc
+compiling value.cc
+compiling backref.cc
+compiling constants.cc
+compiling constraints.cc
+compiling template.cc
+compiling locker.cc
+compiling context.cc
+compiling init.cc
+compiling gc.cc
+compiling string.cc
+compiling trycatch.cc
+compiling heap.cc
+compiling external.cc
+linking shared-object v8/init.so
+
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 init.so ./.gem.20160119-29511-8a908s/v8

@@ -1,0 +1,94 @@
+%
+%制限事項は必ず、12pt指定することと、\begin{document}の直後に
+%\setlength{\baselineskip}{7.73mm}を記述することだけです。
+%
+% These are the macros to match with a style of thesis of
+% Department of Information Science and Intelligent Systems,
+% Faculty of Engineering, The University of Tokushima. You
+% can utilize the macros when you have to print out your
+% thesis on the prescribed papers of this department. Note
+% that you have to include 12pt style file and write
+% "\baselineskip7.7mm" after "\begin{document}" when you use
+% this style file.
+% 
+%
+%                       JAN. 1994
+%
+%
+% thesis.sty ate Copyright(c) 1994 Toshihiro Hayashi.
+% modified 1994.2.9 by Ogata (ver.2.01).
+%
+% Permission is granted for use and non-profit distribution of
+% thesis.sty providing that this notice be clearly maintained,
+% but the right to distribute any portion of thesis.sty for
+% profit or as part of any commercial product is specifically
+% reserved for the author.
+%
+
+\typeout{Thesis.sty version 2.01 - Released Feb 9, 1994 (for printing thesis)}
+\typeout{Based on thesis.sty version 1.0 - Released Feb 20, 1992}
+
+\setcounter{totalnumber}{4}
+
+%%%%% Definition of paper parameters
+
+\oddsidemargin0pt\evensidemargin0pt\parindent1zw
+\textheight228mm\textwidth40zw\topmargin7.73mm
+\addtolength{\footskip}{-3mm}
+\pagestyle{headings}
+\setcounter{secnumdepth}{3}  %% subsubsection まで数える
+
+%%%%% Redefinition of list environment
+
+\def\labelenumi{\theenumi)}  %% enumerateを1),2)に変更
+
+\def\@listI{\leftmargin\leftmargini
+ \partopsep 0pt \parsep 0pt \topsep 0pt \itemsep 0pt \relax}
+ \let\@listi\@listI \@listi
+\def\@listii{\leftmargin\leftmarginii
+ \labelwidth\leftmarginii\advance\labelwidth-\labelsep
+ \topsep 0pt \parsep 0pt \itemsep 0pt}
+
+%%%%% Redefinition of figure and table captions
+
+\long\def\@makecaption#1#2{\vskip 10pt
+ \setbox\@tempboxa\hbox{#1 #2}
+ \ifdim \wd\@tempboxa >\hsize \unhbox\@tempboxa\par \else \hbox
+to\hsize{\hfil\box\@tempboxa\hfil}\fi}
+\def\fnum@table{表 \thetable}
+\def\fnum@figure{図 \thefigure}
+
+%%%%% Redefinition of sections
+\def\@makechapterhead#1{\hbox{}%
+%  \vskip2\Cvs
+  {\parindent\z@
+   \raggedright
+   \reset@font\Huge\bfseries 
+   \leavevmode
+   \ifnum \c@secnumdepth >\m@ne
+     \setlength\@tempdima{\linewidth}%
+     \setbox\z@\hbox{\@chapapp\ \thechapter\ \@chappos\hskip1zw}%
+
+     \addtolength\@tempdima{-\wd\z@}%
+     \unhbox\z@ \nobreak
+%     \vskip 20pt
+     \vtop{\hsize\@tempdima#1}%
+   \else
+     #1\relax
+   \fi}\nobreak\vskip3\Cvs}
+
+%\def\@makechapterhead#1{{ \parindent 0pt \raggedright 
+% \ifnum \c@secnumdepth >\m@ne
+% \vspace*{-1.5mm}\LARGE\bf \@chapapp{} \thechapter\ \@chapsho{}
+% \fi \LARGE\bf #1\par \nobreak \vskip 7.73mm} }
+
+%\def\@makeschapterhead#1{{\parindent 0pt \raggedright
+% \vspace*{-1.5mm}\LARGE\bf #1\par \nobreak \vskip 7.73mm}}
+
+
+\def\section{\@startsection{section}{1}
+  {\z@}{7.73mm}{0.01ex}{\large\bf}}
+\def\subsection{\@startsection{subsection}{2}
+  {\z@}{0.01ex}{0.01ex}{\normalsize\bf}}
+\def\subsubsection{\@startsection{subsubsection}{3}
+  {\z@}{0.01ex}{0.01ex}{\normalsize\bf}}

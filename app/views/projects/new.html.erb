@@ -1,0 +1,39 @@
+<h1>プロジェクト作成</h1>
+
+<div class="col-lg-3">
+<%= form_for @project do |f| %>
+  <div class="form-group">
+    <%= f.label 'プロジェクト名' %>
+    <%= f.text_field :name, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label '説明' %>
+    <%= f.text_field :description, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label 'テンプレート' %>
+    <div class="radio">
+      <label><%= radio_button_tag :template, 'template_blank' %>空のテンプレート</label>
+    </div>
+    <div class="radio">
+      <label><%= radio_button_tag :template, 'template_soturon', { checked: true } %>卒論</label>
+    </div>
+    <div class="radio">
+      <label><%= radio_button_tag :template, 'template_syuron' %>修論</label>
+    </div>
+    <div class="radio">
+      <label><%= radio_button_tag :template, 'template_ieee' %>IEEE</label>
+    </div>
+  </div>
+
+  <p>
+    <%= f.submit '作成', class: "btn btn-primary" %>
+  </p>
+<% end %>
+
+<p>
+  <%= link_to '戻る', projects_path, class: "btn btn-info" %>
+</p>
+</div>
