@@ -3,7 +3,8 @@ worker_processes Integer(ENV["WEB_CONCURRENCY"] || 5)
 timeout 15
 preload_app true  # 更新時ダウンタイム無し
 
-listen "/tmp/vtex/unicorn.sock"
+# listen "/tmp/vtex/unicorn.sock"
+listen 4000
 pid "/tmp/vtex/unicorn.pid"
 
 before_fork do |server, worker|

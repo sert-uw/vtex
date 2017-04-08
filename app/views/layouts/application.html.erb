@@ -125,6 +125,9 @@
               <table class="table">
                 <tbody id="image_tbody">
                   <tr>
+                    アップロード可能な拡張子(.png, .jpg, .eps)完全一致のみ
+                  </tr>
+                  <tr>
                     <%= form_tag project_files_path(@project, file: @open_file[:name]), multipart: true do |f| %>
                       <td><%= file_field_tag :image, class: "form-control" %></td>
                       <td class="pull-right"><%= submit_tag '追加', class: "btn btn-primary" %></td>

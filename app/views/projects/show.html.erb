@@ -1,7 +1,7 @@
 <h1><%= @open_file[:name] %></h1>
 
 <%= form_tag project_files_path(@project, file: @open_file[:name]), remote: true, method: :put, id: 'update' do |f| %>
-  <p><%= text_area_tag :content, @open_file[:content], class: "form-control", id: 'file_text_area', style: "min-width: 100%" %></p>
+  <p><%= text_area_tag :content, @open_file[:content], class: "form-control", id: 'file_text_area', style: "min-width: 100%; margin-bottom: 60px" %></p>
   <%= submit_tag '保存', class: "btn btn-primary navbar-btn", id: "update_button", style: "display:none" %>
 <% end %>
 

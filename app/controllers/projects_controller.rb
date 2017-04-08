@@ -94,7 +94,7 @@ class ProjectsController < ApplicationController
   end
 
   def get_tex_files id
-    files = Dir.glob "#{Rails.root}/public/vtex_data/#{current_user.number}/#{id}/*.tex"
+    files = Dir.glob("#{Rails.root}/public/vtex_data/#{current_user.number}/#{id}/*.tex").sort
 
     @tex_files = []
     files.each do |f|
@@ -106,7 +106,7 @@ class ProjectsController < ApplicationController
   def get_image_files id
     png = "#{Rails.root}/public/vtex_data/#{current_user.number}/#{id}/images/*.png"
     jpg = "#{Rails.root}/public/vtex_data/#{current_user.number}/#{id}/images/*.jpg"
-    files = Dir.glob [png, jpg]
+    files = Dir.glob([png, jpg]).sort
 
     @image_files = []
     files.each do |f|

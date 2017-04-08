@@ -1,7 +1,4 @@
 namespace :unicorn do
-  ##
-  # Tasks
-  ##
   desc "Start unicorn for development env."
   task(:start) {
     config = Rails.root.join('config', 'unicorn.rb')
